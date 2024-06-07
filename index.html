@@ -20,9 +20,13 @@
       property="og:description"
       content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot."
     />
-    <!-- Set an empty URL for og:image -->
-    <meta property="og:image" content="" />
-    <meta name="twitter:card" content="summary" />
+
+    <!-- <meta
+      property="og:image"
+      content="https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png"
+    /> -->
+
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
       content="SuperNova DeFi - Automated trading strategies"
@@ -31,9 +35,12 @@
       name="twitter:description"
       content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot."
     />
-    <!-- Set an empty URL for twitter:image -->
-    <meta name="twitter:image" content="" />
+    <!-- <meta
+      name="twitter:image"
+      content="https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png"
+    /> -->
   </head>
+
   <body>
     <style>
       /* Avoid white flash on reload */
@@ -41,23 +48,6 @@
         background-color: black;
       }
     </style>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        // Remove og:image meta tag
-        var ogImageTag = document.querySelector('meta[property="og:image"]');
-        if (ogImageTag) {
-          ogImageTag.parentNode.removeChild(ogImageTag);
-        }
-
-        // Remove twitter:image meta tag
-        var twitterImageTag = document.querySelector(
-          'meta[name="twitter:image"]'
-        );
-        if (twitterImageTag) {
-          twitterImageTag.parentNode.removeChild(twitterImageTag);
-        }
-      });
-    </script>
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];

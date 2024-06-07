@@ -23,8 +23,8 @@
   "theme_color": "#000000",
   "background_color": "#ffffff",
   "providedBy": {
-    "name": "SuperNova",
-    "url": "https://supernova.fusionx.finance"
+    "name": "SuperNova"
+    // "url": "https://supernova.fusionx.finance"
   },
   "description": "SuperNova is a decentralized finance protocol developed by Fusionx in partnership with Bancor.",
   "iconPath": "logo512.png"
