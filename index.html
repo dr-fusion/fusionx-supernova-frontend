@@ -20,16 +20,16 @@
       property="og:description"
       content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot."
     />
-    <meta name="robots" content="noimageindex" />
-    <meta property="og:image" content="" />
     <meta name="twitter:card" content="summary" />
-
-    <!--
-    <meta name="twitter:title" content="SuperNova DeFi - Automated trading strategies" />
-    <meta name="twitter:description" content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot." />
-    -->
+    <meta
+      name="twitter:title"
+      content="SuperNova DeFi - Automated trading strategies"
+    />
+    <meta
+      name="twitter:description"
+      content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot."
+    />
   </head>
-
   <body>
     <style>
       /* Avoid white flash on reload */
@@ -54,5 +54,15 @@
     </script>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
+
+    <!-- Add the following script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const metaTags = document.querySelectorAll('meta[property="og:url"]');
+        metaTags.forEach((tag) => {
+          tag.setAttribute('content', window.location.href);
+        });
+      });
+    </script>
   </body>
 </html>
