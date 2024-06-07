@@ -37,7 +37,7 @@ export const getStrategyTypeItem = (
       {
         summary: 'No trading or gas fees on filled orders',
         details:
-          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Carbon DeFi.',
+          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Supernova DeFi.',
       },
     ],
     svg: <IconBuyLimit className="w-full" />,
@@ -75,7 +75,7 @@ export const getStrategyTypeItem = (
       {
         summary: 'No trading or gas fees on filled orders',
         details:
-          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Carbon DeFi.',
+          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Supernova DeFi.',
       },
     ],
     svg: <IconBuyRange className="w-full" />,
@@ -108,7 +108,7 @@ export const getStrategyTypeItem = (
       {
         summary: 'No trading or gas fees on filled orders',
         details:
-          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Carbon DeFi.',
+          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Supernova DeFi.',
       },
     ],
     svg: <IconTwoRanges className="w-full" />,
@@ -130,7 +130,7 @@ export const getStrategyTypeItem = (
       {
         summary: 'No trading or gas fees on filled orders',
         details:
-          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Carbon DeFi.',
+          'Makers pay no gas when a trade is executed, and there are currently no maker fees on Supernova DeFi.',
       },
       {
         summary: 'Adjustable',

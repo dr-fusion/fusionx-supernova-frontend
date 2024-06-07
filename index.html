@@ -1,42 +1,68 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>SuperNova</title>
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="SuperNova DeFi - Automated trading strategies"
+    />
+    <meta
+      property="og:description"
+      content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot."
+    />
+    <meta
+      property="og:image"
+      content="https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png"
+    />
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="theme-color" content="#000000" />
-  <link rel="apple-touch-icon" href="/logo192.png" />
-  <link rel="manifest" href="/manifest.json" />
-  <title>Carbon</title>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Carbon DeFi - Automated trading strategies">
-  <meta property="og:description" content="Carbon DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot.">
-  <meta property="og:image" content="https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="SuperNova DeFi - Automated trading strategies"
+    />
+    <meta
+      name="twitter:description"
+      content="SuperNova DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot."
+    />
+    <meta
+      name="twitter:image"
+      content="https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png"
+    />
+  </head>
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Carbon DeFi - Automated trading strategies">
-  <meta name="twitter:description" content="Carbon DeFi is an advanced onchain trading protocol enabling automated limit orders, efficiently adjustable w/ custom price ranges, grid trading like recurring orders, works like a DEX trading bot.">
-  <meta name="twitter:image" content="https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png">
-</head>
-
-<body>
-  <style>
-    /* Avoid white flash on reload */
-    body {
-      background-color: black;
-    }
-  </style>
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-5H2KXW7')</script>
-  <div id="root"></div>
-  <script type="module" src="/src/index.tsx"></script>
-</body>
-
+  <body>
+    <style>
+      /* Avoid white flash on reload */
+      body {
+        background-color: black;
+      }
+    </style>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-5H2KXW7');
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
 </html>

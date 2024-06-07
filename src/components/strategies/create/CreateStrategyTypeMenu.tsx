@@ -171,7 +171,7 @@ export const CreateStrategyTypeMenu: FC<UseStrategyCreateReturn> = ({
                 <span className="bg-primary-dark text-primary rounded p-4">
                   <IconStar aria-hidden className="size-10" />
                 </span>
-                Carbon Signature Feature
+                SuperNova Signature Feature
               </p>
             )}
           </article>

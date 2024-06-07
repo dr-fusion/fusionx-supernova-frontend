@@ -94,7 +94,7 @@ export const useDepthChartWidget = (base?: Token, quote?: Token) => {
             },
             style: {
               color: 'rgba(255, 255, 255, 0.6)',
-              fontFamily: 'Carbon-Text',
+              fontFamily: 'Supernova-Text',
               fontSize: '12px',
             },
           },
@@ -141,7 +141,7 @@ export const useDepthChartWidget = (base?: Token, quote?: Token) => {
               },
               style: {
                 color: 'rgba(255, 255, 255, 0.6)',
-                fontFamily: 'Carbon-Text',
+                fontFamily: 'Supernova-Text',
                 fontSize: '12px',
               },
             },
@@ -179,7 +179,7 @@ export const useDepthChartWidget = (base?: Token, quote?: Token) => {
           backgroundColor: '#212123',
           borderWidth: 0,
           style: {
-            fontFamily: 'Carbon-Text',
+            fontFamily: 'Supernova-Text',
             color: 'white',
           },
         },
