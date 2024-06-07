@@ -57,8 +57,9 @@ const get = async <T>(endpoint: string, params: Object = {}): Promise<T> => {
 
 const carbonApi = {
   getCheck: async (): Promise<boolean> => {
-    if (config.mode === 'development') return false;
-    return fetch(`/api/check`).then((res) => res.json());
+    return false;
+    // if (config.mode === 'development') return false;
+    // return fetch(`/api/check`).then((res) => res.json());
   },
   getMarketRate: async (
     address: string,
