@@ -23,7 +23,6 @@ export const ActivityProvider: FC<Props> = ({ children, params, empty }) => {
   const userStrategiesQuery = useGetUserStrategies({
     user: params.ownerId,
   });
-
   if (activityQuery.isLoading || userStrategiesQuery.isLoading) {
     return <CarbonLogoLoading className="w-[100px] flex-1 self-center" />;
   }
