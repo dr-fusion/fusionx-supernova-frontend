@@ -1,0 +1,3 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: https://framerusercontent.com/images/7YeuJPKg50bkh0m7b1yRwhCNIoE.png
