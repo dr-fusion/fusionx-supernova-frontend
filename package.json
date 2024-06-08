@@ -111,7 +111,7 @@
     "lint": "eslint --ext .tsx,.ts .",
     "pre-commit": "yarn lint-staged",
     "e2e:report": "npx playwright show-report e2e/playwright-report",
-    "clean": "rm -rf node-modules"
+    "clean": "rm -rf node_modules"
   },
   "browserslist": {
     "production": [
