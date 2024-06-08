@@ -18,7 +18,6 @@ export const TradePage = () => {
   const search = useSearch({ from: '/trade' });
   const { belowBreakpoint } = useBreakpoints();
   const { baseToken, quoteToken } = useTradeTokens();
-  console.log(' baseToken, quoteToken', baseToken, quoteToken);
   const { isLoading, isTradePairError } = useTradePairs();
   const isValidPair = !(!baseToken || !quoteToken);
   const noTokens = !baseToken && !quoteToken;
