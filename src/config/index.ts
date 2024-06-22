@@ -2,6 +2,8 @@ import ethereumDev from './ethereum/development';
 import ethereumProd from './ethereum/production';
 import seiDev from './sei/development';
 import seiProd from './sei/production';
+import mantleDev from './mantle/development';
+import mantleProd from './mantle/production';
 export { pairsToExchangeMapping } from './utils';
 
 const configs = {
@@ -13,11 +15,15 @@ const configs = {
     development: seiDev,
     production: seiProd,
   },
+  mantle: {
+    development: mantleDev,
+    production: mantleProd,
+  },
 };
 type Network = keyof typeof configs;
 type Mode = 'development' | 'production';
 
-const network = (import.meta.env.VITE_NETWORK || 'ethereum') as Network;
+const network = (import.meta.env.VITE_NETWORK || 'mantle') as Network;
 const mode = import.meta.env.MODE as Mode;
 
 if (!configs[network]) {

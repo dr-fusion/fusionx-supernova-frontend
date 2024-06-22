@@ -19,10 +19,12 @@
   html,
   body,
   #root {
-    @apply text-white bg-black font-text w-full min-h-screen;
+    @apply font-text min-h-screen w-full bg-black text-white;
   }
 
-  h1, h2, th {
+  h1,
+  h2,
+  th {
     @apply font-title;
   }
 
@@ -140,11 +142,11 @@
 }
 
 @keyframes carbonLoading {
-  from {
-    stroke-dashoffset: 5000;
+  0% {
+    transform: rotate(0deg);
   }
-  to {
-    stroke-dashoffset: 0;
+  100% {
+    transform: rotate(360deg);
   }
 }
 

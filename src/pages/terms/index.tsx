@@ -63,7 +63,7 @@ const content = [
           {' '}
           i. View information relating to different cryptographic assets
           commonly referred to as tokens, such as tokens created using the ERC20
-          standard on {config.network.name} blockchain (“Tokens”);
+          standard on the Ethereum blockchain network (“Tokens”);
         </p>
         <p>
           ii. View information from supported electronic wallets used to manage
@@ -77,7 +77,7 @@ const content = [
         </p>
         <p>
           iv. Interact with an instance of an open-source Software Development
-          Kit (the “Carbon SDK”) that facilitates interaction with Carbon, as
+          Kit (the “Carbon SDK”) that facilitates interaction with SuperNova, as
           defined below.
         </p>
         <p>
@@ -159,15 +159,15 @@ const content = [
   },
   {
     id: 3,
-    subtitle: 'Carbon',
+    subtitle: 'SuperNova',
     html: (
       <>
         <p>
-          Carbon is made up of smart contracts designed to facilitate
-          peer-to-peer trades (“Carbon”). Users create permissionless strategies
-          with one or more orders, and are issued a transferable NFT token. The
-          NFT serves as the credentials for interacting with the underlying
-          position. For more information on Carbon, please visit{' '}
+          SuperNova is made up of smart contracts designed to facilitate
+          peer-to-peer trades (SuperNova). Users create permissionless
+          strategies with one or more orders, and are issued a transferable NFT
+          token. The NFT serves as the credentials for interacting with the
+          underlying position. For more information on SuperNova, please visit{' '}
           <a
             className="text-primary underline"
             href="https://docs.carbondefi.xyz"
@@ -179,7 +179,7 @@ const content = [
         </p>
         <br />
         <p>
-          Carbon is deployed on public blockchains to provide a variety of
+          SuperNova is deployed on public blockchains to provide a variety of
           functions as described more fully in the FAQ, and governed through a
           decentralized autonomous organization referred to as “BancorDAO”. For
           more information on BancorDAO, please visit{' '}
@@ -203,13 +203,13 @@ const content = [
         </p>
         <br />
         <p>
-          Because Carbon is deployed on public blockchain networks, it is
+          Because SuperNova is deployed on public blockchain networks, it is
           directly accessible through command lines, command prompts or through
           other decentralized applications (dApps) or third party interfaces.
-          The User does not need to use the Site to use the Carbon SDK, and also
-          does not need the Carbon SDK in order to interact with Carbon. It is
-          the User’s sole responsibility to accurately communicate and effect
-          transactions to interact with Carbon.
+          The User does not need to use the Site to use the SuperNova SDK, and
+          also does not need the SuperNova SDK in order to interact with
+          SuperNova. It is the User’s sole responsibility to accurately
+          communicate and effect transactions to interact with SuperNova.
         </p>
       </>
     ),
@@ -220,8 +220,8 @@ const content = [
     html: (
       <>
         <p>
-          Fees for use of Carbon, including potential maker and taker fees, are
-          subject to determination by BancorDAO. For more information on the
+          Fees for use of SuperNova, including potential maker and taker fees,
+          are subject to determination by BancorDAO. For more information on the
           current fee structure, please visit{' '}
           <a
             className="text-primary underline"
@@ -238,12 +238,12 @@ const content = [
           Use of the Site and Content is not subject to or conditioned upon any
           payment or fee to the Foundation. By using this Site, you confirm that
           you are aware that transactions on public blockchains such as the
-          {' ' + config.network.name} blockchain are often subject to a fee
-          (referred to as “Gas” on {config.network.name}), which is typically
-          paid in the native cryptocurrency of the blockchain and transferred
-          internally into the system. To facilitate transactions on the
-          blockchain you must have a sufficient amount of the crypto asset
-          required for any applicable blockchain fees.
+          Ethereum blockchain are often subject to a fee (referred to as “Gas”
+          on Ethereum), which is typically paid in the native cryptocurrency of
+          the blockchain and transferred internally into the system. To
+          facilitate transactions on the blockchain you must have a sufficient
+          amount of the crypto asset required for any applicable blockchain
+          fees.
         </p>
         <br />
         <p>
@@ -323,7 +323,7 @@ const content = [
           <p>
             ii. institute, assist or become involved in any type of attack
             (deliberate or other) upon the Site or Content that prevents or
-            disrupts the access to or the use of the Carbon.
+            disrupts the access to or the use of the SuperNova.
           </p>
           <p>
             iii. enter or make an attempt to enter the Site and Content
@@ -602,18 +602,18 @@ const content = [
           with cryptographic systems and ecosystems; and represent and warrant
           that you have an understanding of the usage and intricacies of native
           cryptographic tokens. You understand that blockchain technologies
-          (such as {config.network.name}) and associated currencies or tokens
-          are highly volatile due to many factors including but not limited to
-          adoption, speculation, technology and security risks. You also
-          acknowledge that the cost of transacting on such technologies (where
-          applicable) is variable and may increase at any time causing impact to
-          any activities taking place on the relevant blockchain (such as{' '}
-          {config.network.name}). You acknowledge these risks and represent,
-          warrant and agree that the Foundation cannot be held liable for such
-          fluctuations or increased costs. The Foundation shall not be held
-          liable for any losses or damages resulting from the use of the Site,
-          the Content or the services of any third-party provider (including
-          through any Third Party Integrated Application).
+          (such as Ethereum) and associated currencies or tokens are highly
+          volatile due to many factors including but not limited to adoption,
+          speculation, technology and security risks. You also acknowledge that
+          the cost of transacting on such technologies (where applicable) is
+          variable and may increase at any time causing impact to any activities
+          taking place on the relevant blockchain (such as Ethereum). You
+          acknowledge these risks and represent, warrant and agree that the
+          Foundation cannot be held liable for such fluctuations or increased
+          costs. The Foundation shall not be held liable for any losses or
+          damages resulting from the use of the Site, the Content or the
+          services of any third-party provider (including through any Third
+          Party Integrated Application).
         </p>
         <br />
         <p>
@@ -638,12 +638,12 @@ const content = [
           Token Deployment and Conversion Risks. You represent and warrant you
           accept the risk of deploying orders and/or strategies that involve
           converting Tokens. You represent and warrant you understand that
-          Carbon may use untested code and protocols. You accept the risk of
-          loss of assets deployed using Carbon, conversion failure or fault. You
-          agree not to hold the Foundation accountable for any related losses.
-          Neither you nor we, can reverse, change or cancel a conversion of
-          Tokens transaction marked as complete or pending. Conversion of Tokens
-          using the Site and the Content is managed and confirmed via the
+          SuperNova may use untested code and protocols. You accept the risk of
+          loss of assets deployed using SuperNova, conversion failure or fault.
+          You agree not to hold the Foundation accountable for any related
+          losses. Neither you nor we, can reverse, change or cancel a conversion
+          of Tokens transaction marked as complete or pending. Conversion of
+          Tokens using the Site and the Content is managed and confirmed via the
           relevant blockchain. You represent and warrant you understand that
           your relevant blockchain public address will be made publicly visible
           whenever you use the Site or the Content.
@@ -764,18 +764,19 @@ const content = [
         <p>
           {' '}
           i. failure, malfunction or breakdown of, or disruption to, the
-          operation of the Foundation, the Site, the Content, Carbon, Tokens, or
-          any technology on which any of the foregoing rely or relies, including
-          due to occurrences of a “fork”, network attacks, vulnerabilities,
-          defects, flaws in programming or source code or otherwise, regardless
-          of when such failure, malfunction, breakdown, or disruption occurs;
+          operation of the Foundation, the Site, the Content, SuperNova, Tokens,
+          or any technology on which any of the foregoing rely or relies,
+          including due to occurrences of a “fork”, network attacks,
+          vulnerabilities, defects, flaws in programming or source code or
+          otherwise, regardless of when such failure, malfunction, breakdown, or
+          disruption occurs;
         </p>
         <p>
           {' '}
           ii. any virus, error, bug, flaw or similar defect adversely affecting
           the operation, functionality, usage, storage, transmission mechanisms,
           transferability, tradeability and other material characteristics of
-          the Site, the Content, any Tokens or Carbon;
+          the Site, the Content, any Tokens or SuperNova;
         </p>
         <p>
           {' '}
@@ -786,12 +787,12 @@ const content = [
           {' '}
           iv. any prohibition, restriction or regulation by any Governmental
           Authority in any jurisdiction of the operation, functionality, usage,
-          transmission mechanisms of the Content, the Site or Carbon;
+          transmission mechanisms of the Content, the Site or SuperNova;
         </p>
         <p>
           {' '}
           v. any risks (whether direct, indirect or ancillary) associated with
-          the Site, the Content, the Foundation or Carbon; and
+          the Site, the Content, the Foundation or SuperNova; and
         </p>
         <p>
           {' '}
@@ -803,12 +804,12 @@ const content = [
           You acknowledge and agree that you shall access and use the Site and
           the Content at your own risk. The risks associated with handling
           Tokens can be substantial. You should, therefore, carefully consider
-          whether use of Carbon is suitable for you in light of your
+          whether use of SuperNova is suitable for you in light of your
           circumstances and financial resources. Neither the Foundation or any
           Foundation Party at any point in time assumes the risk of losses
           arising from or in connection with your use of the Site, the Content
-          or Carbon, whether or not such loss was due to factors beyond your or
-          the Foundation’s control.
+          or SuperNova, whether or not such loss was due to factors beyond your
+          or the Foundation’s control.
         </p>
         <br />
         <p>
@@ -847,8 +848,8 @@ const content = [
           COMPLETENESS OF THE CONTENT OF THE SITE OR THE CONTENT, OF THE CONTENT
           OF ANY SITES LINKED TO THE SITE OR THE CONTENT, OF ANY THIRD PARTY
           MATERIALS OR THE UNDERLYING SOFTWARE PROTOCOL THAT GOVERNS THE
-          CONTENT, THE SITE AND CARBON. WITHOUT LIMITING THE FOREGOING, NONE OF
-          THE FOUNDATION OR ANY OF ITS RESPECTIVE DIRECTORS, OFFICERS,
+          CONTENT, THE SITE AND SUPERNOVA. WITHOUT LIMITING THE FOREGOING, NONE
+          OF THE FOUNDATION OR ANY OF ITS RESPECTIVE DIRECTORS, OFFICERS,
           EMPLOYEES, AGENTS, ATTORNEYS, THIRD-PARTY CONTENT PROVIDERS,
           DISTRIBUTORS, JOINT-VENTURES, REPRESENTATIVES, LICENSEES OR LICENSORS
           (COLLECTIVELY, “FOUNDATION PARTIES”) REPRESENT OR WARRANT THAT THE
@@ -1053,7 +1054,7 @@ const content = [
 
 export const TermsPage = () => {
   return (
-    <Page title="Terms of Use">
+    <Page title={'Terms of Use'}>
       <>
         <span>Last updated: {config.policiesLastUpdated}</span>
         <p>
@@ -1111,7 +1112,7 @@ export const TermsPage = () => {
             className="text-primary underline"
             to={externalLinks.privacy}
           >
-            CARBON PRIVACY POLICY
+            SUPERNOVA PRIVACY POLICY
           </NewTabLink>
           , which is incorporated herein by reference and which may be modified
           from time to time. In the event of any change, amendment or update to

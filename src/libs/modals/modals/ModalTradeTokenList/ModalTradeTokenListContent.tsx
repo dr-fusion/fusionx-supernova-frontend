@@ -94,7 +94,7 @@ export const ModalTradeTokenListContent: FC<Props> = ({
           className="relative"
           style={{ height: `${rowVirtualizer.getTotalSize()}px` }}
         >
-          {rowVirtualizer.getVirtualItems().map((row) => {
+          {rowVirtualizer.getVirtualItems().map((row, index) => {
             const tradePair = pairs[row.index];
             const { baseToken: base, quoteToken: quote } = tradePair;
             const pairKey = `${base.address}_${quote.address}`;
@@ -102,9 +102,10 @@ export const ModalTradeTokenListContent: FC<Props> = ({
               height: `${row.size}px`,
               transform: `translateY(${row.start}px)`,
             } as const;
+            const listItemKey = `${selectedList}-${index}-${pairKey}`;
             return (
               <li
-                key={`${selectedList}-${pairKey}`}
+                key={listItemKey}
                 className="rounded-12 absolute inset-0 flex items-center justify-between hover:bg-black"
                 style={style}
               >

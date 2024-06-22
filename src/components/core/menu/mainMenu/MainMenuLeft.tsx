@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { carbonEvents } from 'services/events';
 import { Link, useMatchRoute, useRouterState } from 'libs/routing';
-import { ReactComponent as LogoCarbon } from 'assets/logos/carbon.svg';
-import { handleOnItemClick } from 'components/core/menu/utils';
+import { ReactComponent as LogoFusionx } from 'assets/logos/fusionx.svg';
+import { handleOnItemClick } from '../utils';
 import { menuItems } from 'components/core/menu';
 
 export const MainMenuLeft: FC = () => {
@@ -24,7 +24,7 @@ export const MainMenuLeft: FC = () => {
         to="/"
         onClick={() => carbonEvents.navigation.navHomeClick(undefined)}
       >
-        <LogoCarbon className="w-34" />
+        <LogoFusionx className={'w-50'} />
       </Link>
 
       <div className="hidden space-x-24 md:block">
