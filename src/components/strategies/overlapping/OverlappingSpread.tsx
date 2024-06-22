@@ -8,27 +8,28 @@ import {
 } from 'react';
 import { cn, formatNumber, sanitizeNumber } from 'utils/helpers';
 import { getMaxSpread } from 'components/strategies/overlapping/utils';
-import { WarningMessageWithIcon } from 'components/common/WarningMessageWithIcon';
+import { Warning } from 'components/common/WarningMessageWithIcon';
 import styles from './OverlappingSpread.module.css';
 
 interface Props {
   /** Value used to fallback to when custom input is empty */
   defaultValue: number;
   options: number[];
-  spread: number;
+  spread: string;
   buyMin: number;
   sellMax: number;
-  setSpread: (value: number) => void;
+  setSpread: (value: string) => void;
 }
 
 const getWarning = (maxSpread: number) => {
-  return `Given price range, max spread cannot exceed ${maxSpread}%`;
+  return `Given price range, max fee tier cannot exceed ${maxSpread}%`;
 };
 
 const round = (value: number) => Math.round(value * 100) / 100;
 
 export const OverlappingSpread: FC<Props> = (props) => {
-  const { defaultValue, options, spread, setSpread, buyMin, sellMax } = props;
+  const { defaultValue, options, setSpread, buyMin, sellMax } = props;
+  const spread = Number(props.spread);
   const root = useRef<HTMLDivElement>(null);
   const inOptions = options.includes(spread);
   const hasError = spread <= 0 || spread > 100;
@@ -39,12 +40,12 @@ export const OverlappingSpread: FC<Props> = (props) => {
     const maxSpread = round(getMaxSpread(buyMin, sellMax));
     if (value > maxSpread) {
       setWarning(getWarning(maxSpread));
-      setSpread(maxSpread);
+      setSpread(maxSpread.toString());
       input.value = maxSpread.toFixed(2);
       input.focus();
     } else {
       setWarning('');
-      setSpread(value);
+      setSpread(value.toString());
       input.value = '';
     }
   };
@@ -71,14 +72,17 @@ export const OverlappingSpread: FC<Props> = (props) => {
     const value = Number(e.target.value);
     const maxSpread = round(getMaxSpread(buyMin, sellMax));
     if (isNaN(value)) {
-      e.target.value = sanitizeNumber(e.target.value);
+      e.target.value = sanitizeNumber(e.target.value, 6);
     } else if (value > maxSpread) {
+      const max = sanitizeNumber(maxSpread.toString(), 6);
       setWarning(getWarning(maxSpread));
-      setSpread(maxSpread);
-      e.target.value = maxSpread.toFixed(2);
+      setSpread(max);
+      e.target.value = max;
     } else {
+      const value = sanitizeNumber(e.target.value, 6);
       setWarning('');
       setSpread(value);
+      e.target.value = value;
     }
   };
 
@@ -88,10 +92,10 @@ export const OverlappingSpread: FC<Props> = (props) => {
     } else {
       const value = formatNumber(e.target.value);
       if (!value || !Number(value)) {
-        setSpread(defaultValue);
+        setSpread(defaultValue.toString());
         e.target.value = '';
       } else {
-        e.target.value = Number(value).toFixed(2);
+        e.target.value = Number(Number(value).toFixed(6)).toString();
       }
     }
   };
@@ -137,7 +141,7 @@ export const OverlappingSpread: FC<Props> = (props) => {
         >
           <input
             id="spread-custom"
-            className="min-w-0 bg-transparent text-center outline-none placeholder:text-white/40"
+            className="w-full bg-transparent text-center outline-none placeholder:text-white/40"
             defaultValue={options.includes(spread) ? '' : spread}
             name="spread"
             type="text"
@@ -154,19 +158,17 @@ export const OverlappingSpread: FC<Props> = (props) => {
         </div>
       </div>
       {warning && spread && (
-        <WarningMessageWithIcon htmlFor="spread-custom">
-          {warning}
-        </WarningMessageWithIcon>
+        <Warning htmlFor="spread-custom">{warning}</Warning>
       )}
       {spread <= 0 && (
-        <WarningMessageWithIcon htmlFor="spread-custom" isError>
-          The spread should be above 0%
-        </WarningMessageWithIcon>
+        <Warning htmlFor="spread-custom" isError>
+          The fee tier should be above 0%
+        </Warning>
       )}
       {spread > 100 && (
-        <WarningMessageWithIcon htmlFor="spread-custom" isError>
-          The spread should be equal or below 100%
-        </WarningMessageWithIcon>
+        <Warning htmlFor="spread-custom" isError>
+          The fee tier should be equal or below 100%
+        </Warning>
       )}
     </>
   );

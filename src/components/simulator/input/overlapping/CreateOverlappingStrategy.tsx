@@ -15,21 +15,21 @@ import {
   calculateOverlappingSellBudget,
 } from '@bancor/carbon-sdk/strategy-management';
 import { SafeDecimal } from 'libs/safedecimal';
-import { OverlappingBudgetDistribution } from 'components/strategies/overlapping/OverlappingBudgetDistribution';
+import { BudgetDistribution } from 'components/strategies/common/BudgetDistribution';
 import { OverlappingAnchor } from 'components/strategies/overlapping/OverlappingAnchor';
 import {
   SimulatorInputOverlappingValues,
   SimulatorOverlappingInputDispatch,
 } from 'hooks/useSimulatorOverlappingInput';
 import { InputRange } from 'components/strategies/create/BuySellBlock/InputRange';
-import { BudgetInput } from 'components/strategies/common/BudgetInput';
+import { InputBudget } from 'components/strategies/common/InputBudget';
 import { formatNumber } from 'utils/helpers';
 
 interface Props {
   state: SimulatorInputOverlappingValues;
   dispatch: SimulatorOverlappingInputDispatch;
-  spread: number;
-  setSpread: (value: number) => void;
+  spread: string;
+  setSpread: (value: string) => void;
   marketPrice: number;
 }
 
@@ -184,7 +184,7 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
     }
   };
 
-  const setSpreadValue = (value: number) => {
+  const setSpreadValue = (value: string) => {
     setTouched(true);
     setSpread(value);
   };
@@ -282,7 +282,7 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
   useEffect(() => {
     if (!+formatNumber(buy.min)) return;
     const timeout = setTimeout(async () => {
-      const minSellMax = getMinSellMax(Number(buy.min), spread);
+      const minSellMax = getMinSellMax(Number(buy.min), +spread);
       if (Number(sell.max) < minSellMax) setMax(minSellMax.toString());
     }, 1500);
     return () => clearTimeout(timeout);
@@ -293,7 +293,7 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
   useEffect(() => {
     if (!+formatNumber(sell.max)) return;
     const timeout = setTimeout(async () => {
-      const maxBuyMin = getMaxBuyMin(Number(sell.max), spread);
+      const maxBuyMin = getMaxBuyMin(Number(sell.max), +spread);
       if (Number(buy.min) > maxBuyMin) setMin(maxBuyMin.toString());
     }, 1500);
     return () => clearTimeout(timeout);
@@ -332,7 +332,7 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
       </article>
       <article className="rounded-10 bg-background-900 flex w-full flex-col gap-10 p-20">
         <header className="mb-10 flex items-center gap-8 ">
-          <h3 className="text-18 font-weight-500 flex-1">Set Spread</h3>
+          <h3 className="text-18 font-weight-500 flex-1">Set Fee Tier</h3>
           <Tooltip
             element="The difference between the highest bidding (Sell) price, and the lowest asking (Buy) price"
             iconClassName="h-14 w-14 text-white/60"
@@ -369,8 +369,8 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
               Please enter the amount of tokens you want to deposit.
             </p>
           </hgroup>
-          <BudgetInput
-            action="deposit"
+          <InputBudget
+            editType="deposit"
             token={anchor === 'buy' ? quote : base}
             value={budget}
             onChange={setBudget}
@@ -395,7 +395,8 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
               budget allocation
             </p>
           </hgroup>
-          <OverlappingBudgetDistribution
+          <BudgetDistribution
+            title="Sell"
             token={base}
             initialBudget=""
             withdraw="0"
@@ -403,7 +404,8 @@ export const CreateOverlappingStrategy: FC<Props> = (props) => {
             balance="0"
             isSimulator
           />
-          <OverlappingBudgetDistribution
+          <BudgetDistribution
+            title="Buy"
             token={quote}
             initialBudget="0"
             withdraw="0"

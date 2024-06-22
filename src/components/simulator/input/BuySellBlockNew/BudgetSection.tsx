@@ -10,7 +10,7 @@ import { StrategyType } from 'libs/routing';
 import { TokenInputField } from 'components/common/TokenInputField/TokenInputField';
 import { UseQueryResult } from '@tanstack/react-query';
 import { SafeDecimal } from 'libs/safedecimal';
-import { WarningMessageWithIcon } from 'components/common/WarningMessageWithIcon';
+import { Warning } from 'components/common/WarningMessageWithIcon';
 
 interface Props {
   base: Token;
@@ -38,7 +38,7 @@ export const BudgetSection: FC<Props> = ({
   const budgetToken = buy ? quote : base;
   const insufficientBalance =
     tokenBalanceQuery &&
-    !tokenBalanceQuery?.isLoading &&
+    !tokenBalanceQuery?.isPending &&
     new SafeDecimal(tokenBalanceQuery?.data || 0).lt(order.budget);
 
   useEffect(() => {
@@ -88,15 +88,15 @@ export const BudgetSection: FC<Props> = ({
         value={order.budget}
         setValue={(value) => dispatch(`${type}Budget`, value)}
         token={budgetToken}
-        isBalanceLoading={tokenBalanceQuery?.isLoading}
+        isBalanceLoading={tokenBalanceQuery?.isPending}
         balance={tokenBalanceQuery?.data}
         isError={insufficientBalance}
         data-testid="input-budget"
       />
       {insufficientBalance && (
-        <WarningMessageWithIcon htmlFor={inputId} isError>
+        <Warning htmlFor={inputId} isError>
           Insufficient balance
-        </WarningMessageWithIcon>
+        </Warning>
       )}
     </fieldset>
   );

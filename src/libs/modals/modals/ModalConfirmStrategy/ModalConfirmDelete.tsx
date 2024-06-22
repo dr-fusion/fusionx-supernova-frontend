@@ -1,4 +1,4 @@
-import { isOverlappingStrategy } from 'components/strategies/overlapping/utils';
+import { isOverlappingStrategy } from 'components/strategies/common/utils';
 import { useModal } from 'hooks/useModal';
 import { ModalOrMobileSheet } from '../../ModalOrMobileSheet';
 import { ModalFC } from '../../modals.types';
@@ -12,7 +12,6 @@ import { Button } from 'components/common/button';
 import { useDeleteStrategy } from 'components/strategies/useDeleteStrategy';
 import { StrategyEditEventType } from 'services/events/types';
 import { carbonEvents } from 'services/events';
-import { useUpdateStrategy } from 'components/strategies/useUpdateStrategy';
 import { getStatusTextByTxStatus } from 'components/strategies/utils';
 
 export interface ModalConfirmDeleteData {
@@ -26,19 +25,17 @@ export const ModalConfirmDelete: ModalFC<ModalConfirmDeleteData> = ({
 }) => {
   const { closeModal } = useModal();
   const { strategy, strategyEvent } = data;
+  const { deleteStrategy, deleteMutation, isProcessing } = useDeleteStrategy();
+  const isAwaiting = deleteMutation.isPending;
 
-  const { isProcessing, setIsProcessing } = useUpdateStrategy();
-  const { deleteStrategy, deleteMutation } = useDeleteStrategy();
-  const isAwaiting = deleteMutation.isLoading;
   const loadingChildren = getStatusTextByTxStatus(isAwaiting, isProcessing);
-  const isLoading = deleteMutation.isLoading || isProcessing;
+  const isPending = deleteMutation.isPending || isProcessing;
 
   const isOverlapping = isOverlappingStrategy(strategy);
 
   const onClick = () => {
     deleteStrategy(
       strategy,
-      setIsProcessing,
       () => carbonEvents.strategyEdit.strategyDelete(strategyEvent),
       () => closeModal(id)
     );
@@ -68,7 +65,7 @@ export const ModalConfirmDelete: ModalFC<ModalConfirmDeleteData> = ({
             disabled={isAwaiting || isProcessing}
             to="/strategies/edit/$strategyId"
             params={{ strategyId: strategy.id }}
-            search={{ type: 'editPrices' }}
+            search={{ editType: 'editPrices' }}
             className={cn(
               'row-span-2 self-center',
               buttonStyles({ variant: 'white' })
@@ -85,7 +82,7 @@ export const ModalConfirmDelete: ModalFC<ModalConfirmDeleteData> = ({
       <Button
         variant="white"
         onClick={onClick}
-        loading={isLoading}
+        loading={isPending}
         loadingChildren={loadingChildren}
         data-testid="delete-strategy-btn"
       >

@@ -44,7 +44,8 @@ export const fromPairSearch = (
   value: string,
   regex: RegExp = pairSearchExp
 ) => {
-  return value.toLowerCase().replaceAll(regex, '_');
+  const pairKey = value.toLowerCase().replaceAll(regex, '_');
+  return replaceSpecialCharacters(pairKey);
 };
 
 export const createPairMaps = (
@@ -58,10 +59,19 @@ export const createPairMaps = (
     const slug = toPairSlug(base, quote);
     pairMap.set(slug, pair);
     const displayName = toPairName(base, quote);
-    const name = fromPairSearch(displayName, transformSlugExp);
+    const nameRaw = fromPairSearch(displayName, transformSlugExp);
+    const name = replaceSpecialCharacters(nameRaw);
     nameMap.set(slug, name);
   }
   return { pairMap, nameMap };
+};
+
+export const replaceSpecialCharacters = (value: string) => {
+  return value.replace(/(₿)|(₮)/g, (match, p1, p2) => {
+    if (p1) return 'b';
+    if (p2) return 't';
+    return match;
+  });
 };
 
 /**
@@ -78,16 +88,25 @@ export const searchPairKeys = (
   search: string,
   transformSlugExp: RegExp = pairSearchExp
 ) => {
+  // Transform search into pair
   const searchSlug = fromPairSearch(search, transformSlugExp);
   const names: { key: string; name: string }[] = [];
   for (const [key, name] of nameMap.entries()) {
     if (name.includes(searchSlug)) names.push({ key, name });
+    else if (key.includes(searchSlug)) names.push({ key, name });
   }
   return names.sort((a, b) => {
     if (a.name.startsWith(searchSlug)) {
       if (!b.name.startsWith(searchSlug)) return -1;
-    } else {
-      if (b.name.startsWith(searchSlug)) return 1;
+    }
+    if (a.key.startsWith(searchSlug)) {
+      if (!b.key.startsWith(searchSlug)) return -1;
+    }
+    if (b.name.startsWith(searchSlug)) {
+      if (!a.name.startsWith(searchSlug)) return 1;
+    }
+    if (b.key.startsWith(searchSlug)) {
+      if (!a.key.startsWith(searchSlug)) return 1;
     }
     return a.name.localeCompare(b.name);
   });

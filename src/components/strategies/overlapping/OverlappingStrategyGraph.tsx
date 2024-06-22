@@ -12,7 +12,6 @@ import { getSignedMarketPricePercentage } from 'components/strategies/marketPric
 import { SafeDecimal } from 'libs/safedecimal';
 import { Token } from 'libs/tokens';
 import { getMaxBuyMin, getMinSellMax } from './utils';
-import { OrderCreate } from '../create/useOrder';
 import { calculateOverlappingPrices } from '@bancor/carbon-sdk/strategy-management';
 import { marketPricePercent } from '../marketPriceIndication/useMarketIndication';
 import { useMarketPrice } from 'hooks/useMarketPrice';
@@ -24,8 +23,8 @@ interface EnableProps {
   marketPrice: number;
   base?: Token;
   quote?: Token;
-  order0: OrderCreate;
-  order1: OrderCreate;
+  order0: { min: string; max: string; marginalPrice: string };
+  order1: { min: string; max: string; marginalPrice: string };
   spread: number;
   setMin: (value: string) => void;
   setMax: (value: string) => void;
@@ -36,8 +35,8 @@ interface DisableProps {
   marketPrice?: number;
   base?: Token;
   quote?: Token;
-  order0: OrderCreate;
-  order1: OrderCreate;
+  order0: { min: string; max: string; marginalPrice: string };
+  order1: { min: string; max: string; marginalPrice: string };
   spread: number;
   disabled: true;
 }
@@ -547,7 +546,7 @@ export const OverlappingStrategyGraph: FC<Props> = (props) => {
           <span>Geometric mean price</span>
         )}
         <span role="separator">·</span>
-        <span>Spread {spread || 0}%</span>
+        <span>Fee Tier {spread || 0}%</span>
       </figcaption>
       <svg
         ref={svg}

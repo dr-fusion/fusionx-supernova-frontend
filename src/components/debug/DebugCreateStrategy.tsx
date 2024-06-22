@@ -10,7 +10,7 @@ import { FAUCET_TOKENS } from 'utils/tenderly';
 import config from 'config';
 import { formatNumber, wait } from 'utils/helpers';
 import { useMemo, useRef, useState } from 'react';
-import { useWeb3 } from 'libs/web3';
+import { useWagmi } from 'libs/wagmi';
 import { useQueryClient } from '@tanstack/react-query';
 import { useModal } from 'hooks/useModal';
 import { Input, Label } from 'components/common/inputField';
@@ -36,7 +36,7 @@ const spender = config.addresses.carbon.carbonController;
 
 export const DebugCreateStrategy = () => {
   const count = useRef(0);
-  const { user } = useWeb3();
+  const { user } = useWagmi();
   const { openModal } = useModal();
   const queryClient = useQueryClient();
   const createMutation = useCreateStrategyQuery();
@@ -126,14 +126,12 @@ export const DebugCreateStrategy = () => {
         min: buyMin,
         marginalPrice: '',
         budget: buyBudget,
-        price: buyMax === buyMin ? buyMax : '',
       },
       order1: {
         max: sellMax,
         min: sellMin,
         marginalPrice: '',
         budget: sellBudget,
-        price: sellMax === sellMin ? sellMax : '',
       },
     };
     if (spread) {
@@ -247,7 +245,7 @@ export const DebugCreateStrategy = () => {
       </fieldset>
 
       <fieldset className="flex flex-col gap-8 rounded border border-white/60 p-16">
-        <legend>Overlapping Spread</legend>
+        <legend>Concentrated Liquidity Fee Tier</legend>
         <Label label="Spread">
           <Input
             type="text"
@@ -259,7 +257,7 @@ export const DebugCreateStrategy = () => {
           />
         </Label>
         <p id="strategy-spread-description" className="text-12 text-white/60">
-          Spread will create an overlapping strategy. You still need to set the
+          Spread will create a concentrated liquidity. You still need to set the
           correct budget.
         </p>
       </fieldset>
