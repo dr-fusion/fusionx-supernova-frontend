@@ -1,5 +1,6 @@
 import { AppConfig } from 'config/types';
 import IconMANTLELogo from 'assets/logos/mantlelogo.svg';
+import { ONE_HOUR_IN_MS } from 'utils/time';
 
 const addresses = {
   MNT: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
@@ -21,14 +22,10 @@ const addresses = {
 
 export const commonConfig: AppConfig = {
   mode: 'development',
+  appName: 'Fusionx Supernova',
   appUrl: 'https://supernova.fusionx.finance',
   carbonApi: 'https://api.supernova.fusionx.finance/v1/',
-  selectableConnectionTypes: [
-    'injected',
-    'walletConnect',
-    'coinbaseWallet',
-    'gnosisSafe',
-  ],
+  selectedConnectors: ['MetaMask', 'WalletConnect', 'Coinbase Wallet', 'Safe'],
   walletConnectProjectId: '457f449b7e07626c466754376243ed64',
   isSimulatorEnabled: false,
   policiesLastUpdated: '18 April, 2023',
@@ -106,8 +103,18 @@ export const commonConfig: AppConfig = {
       carbonController: '0x04FBC7f949326fFf7Fe4D6aE96BAfa3D8e8A8c0a',
       voucher: '0x6Ed7042cC1eF691ef64D8dCF3764B004d62590dD',
     },
-    utils: {
-      multicall: '0x27679C2E0Da9Bac8b4C4135CF0952d2aBCb6AA55',
+  },
+  utils: {
+    multicall3: {
+      address: '0xb55cc6B5B402437b66c13c0CEd0EF367aa7c26da',
+      blockCreated: 2638,
+    },
+    ensRegistry: {
+      address: '0x',
+    },
+    ensUniversalResolver: {
+      address: '0x',
+      blockCreated: 0,
     },
   },
   tokenListOverride: [
@@ -129,4 +136,12 @@ export const commonConfig: AppConfig = {
       uri: 'https://tokens.coingecko.com/mantle/all.json',
     },
   ],
+  tenderly: {
+    nativeTokenDonorAccount: '',
+    faucetAmount: 1000,
+    faucetTokens: [],
+  },
+  sdk: {
+    cacheTTL: ONE_HOUR_IN_MS,
+  },
 };
