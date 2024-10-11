@@ -359,8 +359,8 @@ For example, if you want to only use Carbon Text:
 
 ```js
 fontFamily: {
-  text: ['Carbon-Text', 'sans-serif'],
-  title: ['Carbon-Text', 'sans-serif'], // change to Carbon Text here
+  text: ['Supernova-Text', 'sans-serif'],
+  title: ['Supernova-Text', 'sans-serif'], // change to Carbon Text here
 },
 ```
 

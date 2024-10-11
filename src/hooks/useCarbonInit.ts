@@ -110,7 +110,7 @@ export const useCarbonInit = () => {
       setIsInitialized(true);
       setIntervalUsingTimeout(persistSdkCacheDump, 1000 * 60);
     } catch (e) {
-      console.error('Error initializing Carbon', e);
+      console.error('Error initializing SuperNova', e);
       setIsError(true);
     } finally {
       setIsLoading(false);

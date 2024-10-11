@@ -2,11 +2,11 @@ import ethereumDev from './ethereum/development';
 import ethereumProd from './ethereum/production';
 import seiDev from './sei/development';
 import seiProd from './sei/production';
-import celoDev from './celo/development';
-import celoProd from './celo/production';
-import blastDev from './blast/development';
-import blastProd from './blast/production';
+
 import { handleConfigOverrides } from './utils';
+import mantleDev from './mantle/development';
+import mantleProd from './mantle/production';
+export { pairsToExchangeMapping } from './utils';
 
 const configs = {
   ethereum: {
@@ -17,19 +17,16 @@ const configs = {
     development: seiDev,
     production: seiProd,
   },
-  celo: {
-    development: celoDev,
-    production: celoProd,
-  },
-  blast: {
-    development: blastDev,
-    production: blastProd,
+
+  mantle: {
+    development: mantleDev,
+    production: mantleProd,
   },
 };
 type Network = keyof typeof configs;
 type Mode = 'development' | 'production';
 
-const network = (import.meta.env.VITE_NETWORK || 'ethereum') as Network;
+const network = (import.meta.env.VITE_NETWORK || 'mantle') as Network;
 const mode = import.meta.env.MODE as Mode;
 
 if (!configs[network]) {
@@ -41,7 +38,6 @@ if (!configs[network][mode]) {
   throw new Error(`NODE_ENV should be ${modes}, got "${mode}"`);
 }
 
-export { pairsToExchangeMapping } from './utils';
 
 export const networks = Object.entries(configs)
   .filter(([_id, config]) => config[mode].hidden !== true)

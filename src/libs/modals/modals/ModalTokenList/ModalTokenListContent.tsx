@@ -41,7 +41,6 @@ export const ModalTokenListContent: FC<Props> = ({
     lsService.getItem('chooseTokenCategory') || 'popular'
   );
   const _tokens = !!search ? tokens.all : tokens[selectedList];
-
   const setSelectedList = (category: ChooseTokenCategory) => {
     _setSelectedList(category);
     lsService.setItem('chooseTokenCategory', category);
@@ -60,12 +59,12 @@ export const ModalTokenListContent: FC<Props> = ({
   }, [search]);
 
   const favoritesMap = useMemo(
-    () => new Set(tokens.favorites.map((token) => token.address)),
+    () => new Set(tokens.favorites.map((token) => token?.address)),
     [tokens.favorites]
   );
 
   const isFavorite = useCallback(
-    (token: Token) => favoritesMap.has(token.address),
+    (token: Token) => favoritesMap.has(token?.address),
     [favoritesMap]
   );
   const suspiciousTokenTooltipMsg =
@@ -106,32 +105,32 @@ export const ModalTokenListContent: FC<Props> = ({
             } as const;
             return (
               <li
-                key={token.address}
-                className="rounded-12 absolute inset-0 flex items-center justify-between hover:bg-black"
+                key={token?.address}
+                className="absolute inset-0 flex items-center justify-between rounded-12 hover:bg-black"
                 style={style}
               >
                 <button
                   onClick={() => onSelect(token)}
                   className="flex flex-1 items-center gap-10 p-8"
-                  data-testid={`select-token-${token.address}`}
+                  data-testid={`select-token-${token?.address}`}
                 >
                   <LogoImager
-                    src={token.logoURI}
-                    alt={`${token.symbol} Token`}
-                    className="size-32"
+                    src={token?.logoURI}
+                    alt={`${token?.symbol} Token`}
+                    className="h-32 w-32"
                   />
                   <div className="ml-15 grid justify-items-start">
                     <div className="flex">
-                      {token.symbol}
-                      {token.isSuspicious && (
+                      {token?.symbol}
+                      {token?.isSuspicious && (
                         <WarningWithTooltip
                           className="ml-5"
                           tooltipContent={suspiciousTokenTooltipMsg}
                         />
                       )}
                     </div>
-                    <div className="text-12 max-w-full truncate text-white/60">
-                      {token.name ?? token.symbol}
+                    <div className="text-secondary max-w-full truncate text-12">
+                      {token?.name ?? token?.symbol}
                     </div>
                     {duplicateSymbols.includes(token.symbol) && (
                       <ModalTokenListDuplicateWarning token={token} />

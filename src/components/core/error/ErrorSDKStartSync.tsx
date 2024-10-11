@@ -6,7 +6,7 @@ export const ErrorSDKStartSync = () => {
     <ErrorWrapper
       icon={<IconWarning />}
       title="Internal Error"
-      text="Data sync using Carbon SDK has failed. Please contact support or try again."
+      text="Data sync using SuperNova SDK has failed. Please contact support or try again."
       variant="error"
     />
   );

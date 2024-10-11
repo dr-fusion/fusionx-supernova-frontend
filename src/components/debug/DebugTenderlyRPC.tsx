@@ -44,7 +44,7 @@ export const DebugTenderlyRPC = () => {
 
       {urlInput && (
         <>
-          <Label label="Carbon Controller Contract">
+          <Label label="SuperNova Controller Contract">
             <Input
               value={carbonControllerInput}
               onChange={(e) => setCarbonControllerInput(e.target.value)}
@@ -52,7 +52,7 @@ export const DebugTenderlyRPC = () => {
             />
           </Label>
 
-          <Label label="Carbon Voucher Contract">
+          <Label label="SuperNova Voucher Contract">
             <Input
               value={voucherAddressInput}
               onChange={(e) => setVoucherAddressInput(e.target.value)}
@@ -71,7 +71,7 @@ export const DebugTenderlyRPC = () => {
         <span>Unchecked Signer</span>
       </div>
 
-      <Label label="Carbon API URL">
+      <Label label="SuperNova API URL">
         <Input
           value={backendUrl}
           onChange={(e) => setBackendUrl(e.target.value)}

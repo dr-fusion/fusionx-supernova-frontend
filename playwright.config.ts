@@ -27,7 +27,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://localhost:3001',
     trace: isCI ? 'on-first-retry' : 'retain-on-failure',
     storageState: 'e2e/storage.json',
   },
@@ -55,7 +55,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    url: 'http://localhost:3000',
+    url: 'http://localhost:3001',
     reuseExistingServer: !isCI,
     command: isCI ? 'yarn build && yarn serve --port 3000' : 'yarn start',
   },
