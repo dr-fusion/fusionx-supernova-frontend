@@ -45,6 +45,9 @@ export const commonConfig: AppConfig = {
       logoURI: IconMANTLELogo,
     },
   },
+  sdk: {
+    cacheTTL: 0,
+  },
   defaultTokenPair: [addresses.MNT, addresses.USDC],
   popularPairs: [
     [addresses.MNT, addresses.USDC],
