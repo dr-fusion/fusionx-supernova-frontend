@@ -10,6 +10,7 @@ const addresses = {
 };
 
 export const commonConfig: AppConfig = {
+  hidden: true,
   mode: 'development',
   appName: 'Carbon DeFi',
   appUrl: 'https://sei.carbondefi.xyz',

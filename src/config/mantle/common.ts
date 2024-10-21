@@ -141,11 +141,8 @@ export const commonConfig: AppConfig = {
     faucetAmount: 1000,
     faucetTokens: [],
   },
-  sdk: {
-    cacheTTL: ONE_HOUR_IN_MS,
-  },
   ui: {
     priceChart: 'native',
+    useGradientBranding: true,
   },
-  
 };
